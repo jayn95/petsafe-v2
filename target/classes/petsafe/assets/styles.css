@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Berkshire";
+  src: url("BerkshireSwash-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Josefin Sans Medium";
+  src: url("JosefinSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Josefin Sans Light";
+  src: url("JosefinSans-Light.ttf");
+}
+
+.button {
+  -fx-background-color: transparent;
+}
+
+.button:hover {
+  -fx-background-color: #d6cc99;
+}
+
+.main-title {
+  -fx-font-family: "Berkshire Swash";
+  -fx-font-size: 52;
+}
+
+.subtitle, .button {
+  -fx-font-family: "Josefin Sans Medium";
+  -fx-font-size: 26;
+}
+
+.small-text {
+  -fx-font-family: "Josefin Sans Light";
+  -fx-font-size: 12;
+}
+
+.description {
+  -fx-font-family: "Josefin Sans Light";
+  -fx-font-size: 16;
+}
+
+.separator .line {
+  -fx-background-color: inherit;
+  -fx-border-color: null;
+}
+
+.separator {
+  -fx-background-color: #445D48;
+  -fx-pref-width: 1;
+}
+
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;
+}
