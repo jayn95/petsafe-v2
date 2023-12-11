@@ -54,3 +54,35 @@
 .scroll-pane > .viewport {
   -fx-background-color: transparent;
 }
+
+.scroll-bar:vertical .track {
+  
+}
+
+.scroll-bar:vertical {
+  -fx-background-color: transparent;
+}
+
+/* Customize the scrollbar thumb */
+.scroll-bar:vertical .thumb {
+  -fx-background-color: #D6CC99;
+}
+
+/* Customize the scrollbar buttons */
+.scroll-bar:vertical .increment-button:hover, .scroll-bar:vertical .decrement-button:hover {
+  -fx-background-color: transparent;
+}
+
+.text-field:focused {
+  -fx-focus-color: red;
+  -fx-faint-focus-color: green;
+  -fx-inner-border: blue;
+  -fx-body-color: orange;
+}
+
+.text-field {
+  -fx-font-family: "Josefin Sans Light";
+  -fx-font-size: 16;
+  -fx-background-insets: 0;
+  -fx-border-color: #445D48;
+}

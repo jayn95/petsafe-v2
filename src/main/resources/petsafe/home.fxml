@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -26,18 +25,12 @@
          <children>
             <VBox layoutY="10.0" stylesheets="@assets/styles.css" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
                <children>
-                  <MFXTextField floatMode="ABOVE" prefHeight="40.0" prefWidth="400.0" promptText="Search for some recipes..." style="-fx-background-color: transparent;">
-                     <textFill>
-                        <Color green="0.08235294371843338" blue="0.1411764770746231" />
-                     </textFill>
-                     <font>
-                        <Font name="Josefin Sans Regular" size="16.0" />
-                     </font>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="400.0" promptText="Search for some recipes..." styleClass="text-field" stylesheets="@assets/styles.css">
                      <VBox.margin>
                         <Insets bottom="16.0" left="100.0" top="16.0" />
                      </VBox.margin>
-                  </MFXTextField>
-                  <ScrollPane fx:id="scrollPane" fitToWidth="true" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+                  </TextField>
+                  <ScrollPane fx:id="scrollPane" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent; -fx-effect: null;" vbarPolicy="ALWAYS">
                      <content>
                         <GridPane fx:id="content" hgap="40.0" vgap="40.0">
                           <columnConstraints>
@@ -49,6 +42,9 @@
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                           </rowConstraints>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
                         </GridPane>
                      </content>
                      <padding>

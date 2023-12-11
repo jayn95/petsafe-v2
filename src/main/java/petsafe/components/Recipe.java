@@ -2,9 +2,13 @@ package petsafe.components;
 
 import java.io.IOException;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -14,6 +18,8 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class Recipe extends VBox {
   @FXML
@@ -36,6 +42,14 @@ public class Recipe extends VBox {
     fxmlLoader.setRoot(this);
     fxmlLoader.setController(this);
 
+    // Add effects
+    DropShadow shadow = new DropShadow();
+    shadow.setColor(Color.rgb(214, 204, 153));
+    shadow.setSpread(-1.0);
+    shadow.setRadius(0);
+  
+    this.setEffect(shadow);
+
     try {
       fxmlLoader.load();
     } catch (IOException e) {
@@ -54,5 +68,35 @@ public class Recipe extends VBox {
     recipeName.setText(name);
     recipeDescription.setText(description);
     isPetSafe.setText(petsafe ? "Safe for pets" : "Not safe for pets");
+
+    // Set Mouse Click Event
+    this.setOnMouseClicked((e) -> {
+      System.out.println("Clicked Recipe " + name);
+    });
+
+    this.setOnMouseEntered((e) -> {
+      Timeline timeline = new Timeline(
+        new KeyFrame(Duration.seconds(0.15), 
+          new KeyValue(shadow.offsetYProperty(), 3),
+          new KeyValue(shadow.radiusProperty(), 6),
+          new KeyValue(this.translateYProperty(), -6)
+        )
+      );
+
+      timeline.play();
+    });
+
+    this.setOnMouseExited((e) -> {
+      Timeline timeline = new Timeline(
+        new KeyFrame(Duration.seconds(0.15), 
+          new KeyValue(shadow.offsetYProperty(), 0),
+          new KeyValue(shadow.radiusProperty(), 0),
+          new KeyValue(this.translateYProperty(), 0)
+        )  
+      );
+
+      timeline.play();
+    });
+
   }
 }

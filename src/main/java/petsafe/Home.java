@@ -5,9 +5,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 import petsafe.components.Recipe;
 
 public class Home {
@@ -53,5 +58,32 @@ public class Home {
     }
 
     scrollPane.setMaxHeight(460);
+
+    Timeline scrollTimeline = new Timeline();
+    FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(1));
+
+    // Scrollbar customization
+
+    Platform.runLater(() -> {
+      scrollPane.lookup(".scroll-bar:vertical").setOpacity(0);
+
+      scrollPane.vvalueProperty().addListener((observable, oldVal, newVal) -> {
+        scrollPane.lookup(".scroll-bar:vertical").setOpacity(1);
+
+        scrollTimeline.stop();
+        scrollTimeline.getKeyFrames().clear();
+        fadeOutTransition.stop();
+
+        scrollTimeline.getKeyFrames().add(
+            new KeyFrame(Duration.seconds(3), e -> {
+              fadeOutTransition.setNode(scrollPane.lookup(".scroll-bar:vertical"));
+              fadeOutTransition.setFromValue(1);
+              fadeOutTransition.setToValue(0);
+              fadeOutTransition.play();
+            }));
+
+        scrollTimeline.play();
+      });
+    });
   }
 }
