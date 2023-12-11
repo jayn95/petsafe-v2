@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -20,11 +21,12 @@ public class App extends Application {
     scene = new Scene(loadFXML("home"));
     stage.setScene(scene);
     
-    stage.setMinWidth(1296);
-    stage.setMinHeight(648);
-
     stage.setTitle("Pet-safe");
+    
+    stage.initStyle(StageStyle.DECORATED);
+    stage.setResizable(false);
     stage.setMaximized(true);
+   
     stage.show();
   }
 

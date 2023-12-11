@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -25,34 +26,25 @@
          <children>
             <VBox layoutY="10.0" stylesheets="@assets/styles.css" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="400.0" promptText="Search for some recipes..." styleClass="text-field" stylesheets="@assets/styles.css">
+                  <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onKeyTyped="#listenTextChange" prefHeight="40.0" prefWidth="400.0" promptText="Search for some recipes..." styleClass="text-field" stylesheets="@assets/styles.css">
                      <VBox.margin>
                         <Insets bottom="16.0" left="100.0" top="16.0" />
                      </VBox.margin>
                   </TextField>
                   <ScrollPane fx:id="scrollPane" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
-                     <content>
-                        <GridPane fx:id="content" hgap="40.0" vgap="40.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <padding>
-                              <Insets top="20.0" />
-                           </padding>
-                        </GridPane>
-                     </content>
                      <padding>
                         <Insets left="100.0" right="100.0" />
                      </padding>
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <content>
+                        <FlowPane fx:id="content" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
                   </ScrollPane>
                </children>
             </VBox>

@@ -2,7 +2,6 @@ package petsafe.components;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URL;
 import java.nio.file.Paths;
 
 import javafx.animation.KeyFrame;
@@ -10,17 +9,9 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -42,6 +33,8 @@ public class Recipe extends VBox {
 
   @FXML
   private Label isPetSafe;
+
+  private String recipeNameStr;
 
   public Recipe(String name, String description, String imgPath, int rating, boolean petsafe) {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe.fxml"));
@@ -83,8 +76,9 @@ public class Recipe extends VBox {
 
     image.setClip(clip);
 
-    
+    recipeNameStr = name;
     recipeName.setText(name);
+
     recipeDescription.setText(description);
     isPetSafe.setText(petsafe ? "Safe for pets" : "Not safe for pets");
 
@@ -117,5 +111,9 @@ public class Recipe extends VBox {
       timeline.play();
     });
 
+  }
+
+  public String getRecipeName() {
+    return recipeNameStr;
   }
 }
