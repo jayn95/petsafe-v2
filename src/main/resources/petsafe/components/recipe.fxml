@@ -9,7 +9,7 @@
 
 <fx:root styleClass="recipe" stylesheets="@../assets/styles.css" type="VBox" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="image" maxWidth="260.0" minWidth="-Infinity" prefHeight="200.0" />
+      <AnchorPane fx:id="image" maxWidth="260.0" minWidth="-Infinity" prefHeight="200.0" stylesheets="@../assets/styles.css" />
       <Label fx:id="recipeName" maxWidth="260.0" styleClass="subtitle" stylesheets="@../assets/styles.css" text="Label" wrapText="true">
          <font>
             <Font name="Josefin Sans Regular" size="26.0" />

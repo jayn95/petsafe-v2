@@ -1,15 +1,20 @@
 package petsafe.components;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Paths;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -19,6 +24,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class Recipe extends VBox {
@@ -44,7 +50,7 @@ public class Recipe extends VBox {
 
     // Add effects
     DropShadow shadow = new DropShadow();
-    shadow.setColor(Color.rgb(214, 204, 153));
+    shadow.setColor(Color.rgb(68, 93, 72, 0.5));
     shadow.setSpread(-1.0);
     shadow.setRadius(0);
   
@@ -56,15 +62,28 @@ public class Recipe extends VBox {
       throw new RuntimeException(e);
     }
 
-    BackgroundImage bg = new BackgroundImage(
-        new Image(getClass().getResource("/petsafe/assets/thumbnails/" + imgPath).toExternalForm()),
-        BackgroundRepeat.NO_REPEAT, // repeatX
-        BackgroundRepeat.NO_REPEAT, // repeatY
-        BackgroundPosition.CENTER, // position
-        new BackgroundSize(-1, -1, false, false, false, true));
+    String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+    URI uri = Paths.get(assetsPath, imgPath).toUri();
 
-    image.setBackground(new Background(bg));
+    String imgFile = uri.toASCIIString();
+    // System.out.println(imgFile);
 
+    image.setStyle(
+      "-fx-background-image: url('" + imgFile + "');" 
+      + "-fx-background-size: cover;"
+      + "-fx-background-position: center center;" 
+      + "-fx-background-color: gray;"
+    );
+
+    Rectangle clip = new Rectangle();
+    clip.widthProperty().bind(image.widthProperty());
+    clip.heightProperty().bind(image.heightProperty());
+    clip.setArcWidth(20);
+    clip.setArcHeight(20);
+
+    image.setClip(clip);
+
+    
     recipeName.setText(name);
     recipeDescription.setText(description);
     isPetSafe.setText(petsafe ? "Safe for pets" : "Not safe for pets");

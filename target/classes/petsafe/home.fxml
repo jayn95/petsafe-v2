@@ -30,7 +30,7 @@
                         <Insets bottom="16.0" left="100.0" top="16.0" />
                      </VBox.margin>
                   </TextField>
-                  <ScrollPane fx:id="scrollPane" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent; -fx-effect: null;" vbarPolicy="ALWAYS">
+                  <ScrollPane fx:id="scrollPane" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
                      <content>
                         <GridPane fx:id="content" hgap="40.0" vgap="40.0">
                           <columnConstraints>
@@ -63,16 +63,16 @@
       <GridPane maxHeight="-Infinity" minHeight="120.0" prefHeight="120.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Circle fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE">
+            <Circle fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets right="20.0" />
+                  <Insets />
                </GridPane.margin></Circle>
             <Label styleClass="main-title" stylesheets="@assets/styles.css" text="The Pet-Safe Recipe Book" GridPane.columnIndex="1">
                <font>
@@ -81,6 +81,9 @@
                <padding>
                   <Insets bottom="20.0" />
                </padding>
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
             </Label>
             <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="120.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
