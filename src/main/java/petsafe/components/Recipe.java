@@ -17,6 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import petsafe.App;
+import petsafe.RecipePage;
 
 public class Recipe extends VBox {
   @FXML
@@ -85,6 +87,15 @@ public class Recipe extends VBox {
     // Set Mouse Click Event
     this.setOnMouseClicked((e) -> {
       System.out.println("Clicked Recipe " + name);
+
+      try {
+        RecipePage controller = App.setRootGetController("recipePage");
+        controller.printPassedParams(name);
+        
+      } catch (IOException e1) {
+        // TODO Auto-generated catch block
+        e1.printStackTrace();
+      }
     });
 
     this.setOnMouseEntered((e) -> {

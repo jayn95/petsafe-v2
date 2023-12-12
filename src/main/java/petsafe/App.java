@@ -26,6 +26,14 @@ public class App extends Application {
     stage.show();
   }
 
+  public static<T> T setRootGetController(String fxml) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    scene.setRoot(fxmlLoader.load());
+
+    T controller = fxmlLoader.getController();
+    return controller;
+  }
+
   static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadFXML(fxml));
   }

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,39 +13,45 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="petsafe.AddRecipe">
+<BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="petsafe.RecipePage">
    <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <GridPane hgap="20.0" vgap="20.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="40.0">
+            <GridPane hgap="10.0" vgap="10.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="40.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="400.0" promptText="Recipe Name" styleClass="text-field" stylesheets="@assets/styles.css" />
-                  <TextField fx:id="imagePath" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="400.0" promptText="Image Path" styleClass="text-field" stylesheets="@assets/styles.css" GridPane.columnIndex="1" />
-                  <CheckBox fx:id="ispetsafe" mnemonicParsing="false" stylesheets="@assets/styles.css" text="Safe for pets" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Josefin Sans Light" size="16.0" />
-                     </font>
-                  </CheckBox>
-                  <TextArea fx:id="description" prefColumnCount="30" prefRowCount="4" promptText="Description" stylesheets="@assets/styles.css" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <TextArea fx:id="ingredients" prefColumnCount="30" prefRowCount="8" promptText="Ingredients" stylesheets="@assets/styles.css" wrapText="true" GridPane.rowIndex="3" />
-                  <TextArea fx:id="procedure" prefColumnCount="29" prefRowCount="8" promptText="Procedure" stylesheets="@assets/styles.css" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button mnemonicParsing="false" onAction="#addRecipe" stylesheets="@assets/styles.css" text="Add Recipe" GridPane.rowIndex="4" />
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label fx:id="name" styleClass="subtitle" stylesheets="@assets/styles.css" text="Recipe Name" />
+                        <HBox>
+                           <children>
+                              <FontAwesomeIconView glyphName="STAR" />
+                              <FontAwesomeIconView glyphName="STAR" layoutX="10.0" layoutY="20.0" />
+                              <FontAwesomeIconView glyphName="STAR" layoutX="22.0" layoutY="20.0" />
+                              <FontAwesomeIconView glyphName="STAR" layoutX="34.0" layoutY="20.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Description" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                  <Label fx:id="ingredients" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Ingredients" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Label fx:id="procedure" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Procedure" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <AnchorPane minHeight="230.0" minWidth="410.0" style="-fx-background-color: lightgray;" GridPane.columnIndex="1" GridPane.rowSpan="2" />
                </children>
             </GridPane>
          </children>
