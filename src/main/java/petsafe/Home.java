@@ -33,7 +33,7 @@ public class Home {
   public void initialize() {
     recipes = new ArrayList<>();
     SQLite sql = new SQLite();
-    ResultSet results = sql.selectAll("SELECT * FROM recipes");
+    ResultSet results = sql.selectAll("SELECT * FROM recipes ORDER BY name");
 
     try {
       while (results.next()) {
@@ -50,8 +50,6 @@ public class Home {
     } catch (SQLException e) {
       System.out.println(e.getMessage());
     }
-    
-    // scrollPane.setMaxHeight(460);
 
     Timeline scrollTimeline = new Timeline();
     FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(1));
