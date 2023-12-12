@@ -37,35 +37,15 @@
                         <Insets bottom="16.0" left="100.0" top="16.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" stylesheets="@assets/styles.css" vbarPolicy="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                  <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" stylesheets="@assets/styles.css" vbarPolicy="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets left="100.0" right="100.0" />
                      </padding>
                      <content>
-                        <FlowPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="200.0">
+                        <FlowPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
-                           <children>
-                              <Button mnemonicParsing="false" text="Button" />
-                              <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="115.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="220.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="325.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="430.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="535.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="640.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="745.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="850.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="955.0" layoutY="30.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="10.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="115.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="220.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="325.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="430.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="535.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="640.0" layoutY="76.0" mnemonicParsing="false" text="Button" />
-                           </children>
                         </FlowPane>
                      </content>
                   </ScrollPane>
