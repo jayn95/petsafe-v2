@@ -1,5 +1,6 @@
+petsafe\App.class
+petsafe\SQLite.class
 petsafe\Home.class
 module-info.class
 petsafe\components\Recipe.class
-petsafe\App.class
-petsafe\SQLite.class
+petsafe\AddRecipe.class

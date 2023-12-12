@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -22,9 +21,6 @@ public class App extends Application {
     stage.setScene(scene);
     
     stage.setTitle("Pet-safe");
-    
-    stage.initStyle(StageStyle.DECORATED);
-    stage.setResizable(false);
     stage.setMaximized(true);
    
     stage.show();
@@ -42,5 +38,4 @@ public class App extends Application {
   public static void main(String[] args) {
     launch();
   }
-
 }

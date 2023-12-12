@@ -1,24 +1,18 @@
 package petsafe;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import petsafe.components.Recipe;
 
@@ -56,16 +50,6 @@ public class Home {
     } catch (SQLException e) {
       System.out.println(e.getMessage());
     }
-
-    // int recipeCount = recipes.size();
-
-    // for (int i = 0; i < recipeCount; i++) {
-    //   Recipe recipe = recipes.get(i);
-    //   int row = i / 4;
-    //   int column = i % 4;
-
-    //   content.add(recipe, column, row);
-    // }
     
     scrollPane.setMaxHeight(460);
 
@@ -102,23 +86,12 @@ public class Home {
 
   @FXML
   private void listenTextChange() {
-    String searchString = searchBar.getText();
+    String searchString = searchBar.getText().trim().toLowerCase();
 
     List<Recipe> tmp = new ArrayList<>();
-    
-    // for (Node recipe : content.getChildren()) {
-    //   if (recipe instanceof Recipe) {
-    //     if (((Recipe) recipe).getRecipeName().contains(searchString)) {
-    //       recipe.setVisible(true);
-
-    //     } else {
-    //       recipe.setVisible(false);
-    //     }
-    //   }
-    // }
 
     for (Recipe recipe : recipes) {
-      if (recipe.getRecipeName().contains(searchString)) {
+      if (recipe.getRecipeName().toLowerCase().contains(searchString)) {
         tmp.add(recipe);
       } 
     }
@@ -137,5 +110,10 @@ public class Home {
     System.out.println(gap);
     content.setHgap(gap);
     content.setVgap(gap);
+  }
+
+  @FXML
+  private void addRecipe() throws IOException {
+    App.setRoot("addRecipe");
   }
 }

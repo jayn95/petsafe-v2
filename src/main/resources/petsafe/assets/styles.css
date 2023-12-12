@@ -65,25 +65,31 @@
   
 }
 
-.scroll-bar:vertical {
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
   -fx-background-color: transparent;
 }
 
 /* Customize the scrollbar thumb */
-.scroll-bar:vertical .thumb {
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
   -fx-background-color: #D6CC99;
 }
 
 /* Customize the scrollbar buttons */
-.scroll-bar:vertical .increment-button:hover, .scroll-bar:vertical .decrement-button:hover {
+.scroll-bar:vertical .increment-button:hover, .scroll-bar:vertical .decrement-button:hover,
+.scroll-bar:horizontal .increment-button:hover, .scroll-bar:horizontal .decrement-button:hover {
   -fx-background-color: transparent;
 }
 
-.text-field:focused {
+.text-field:focused,
+.text-area:focused {
   -fx-border-color: #445d487e;
 }
 
-.text-field {
+.text-field,
+.text-area,
+.text-area .content {
   -fx-font-family: "Josefin Sans Light";
   -fx-font-size: 16;
   -fx-text-fill: #080A0C;
@@ -92,4 +98,9 @@
   -fx-border-radius: 10;
   
   -fx-background-color: transparent;
+  -fx-background-insets: 0;
+}
+
+.text-area .content {
+  -fx-border-color: none;
 }

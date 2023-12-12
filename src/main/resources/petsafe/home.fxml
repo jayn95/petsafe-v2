@@ -39,7 +39,7 @@
                         <Insets />
                      </VBox.margin>
                      <content>
-                        <FlowPane fx:id="content" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0">
+                        <FlowPane fx:id="content" maxWidth="1.7976931348623157E308" prefHeight="200.0">
                            <padding>
                               <Insets top="20.0" />
                            </padding>
@@ -79,7 +79,7 @@
             </Label>
             <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="120.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" stylesheets="@assets/styles.css" text="Recipes">
+                  <Button mnemonicParsing="false" onAction="#addRecipe" stylesheets="@assets/styles.css" text="Add Recipe">
                      <HBox.margin>
                         <Insets left="1.0" right="1.0" />
                      </HBox.margin>
