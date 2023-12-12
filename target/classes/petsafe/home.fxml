@@ -18,7 +18,7 @@
 
 <BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="petsafe.Home">
    <center>
-      <AnchorPane BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -29,7 +29,7 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" valignment="BOTTOM" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
                   <TextField fx:id="searchBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onKeyTyped="#listenTextChange" prefHeight="40.0" prefWidth="400.0" promptText="Search for some recipes..." styleClass="text-field" stylesheets="@assets/styles.css">
@@ -37,12 +37,12 @@
                         <Insets bottom="16.0" left="100.0" top="16.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" minHeight="400.0" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" stylesheets="@assets/styles.css" vbarPolicy="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                  <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" pannable="true" scaleShape="false" style="-fx-background-color: transparent;" stylesheets="@assets/styles.css" vbarPolicy="ALWAYS" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                      <padding>
                         <Insets left="100.0" right="100.0" />
                      </padding>
                      <content>
-                        <FlowPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                        <FlowPane fx:id="content">
                            <padding>
                               <Insets top="20.0" />
                            </padding>

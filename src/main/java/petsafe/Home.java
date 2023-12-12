@@ -51,7 +51,7 @@ public class Home {
       System.out.println(e.getMessage());
     }
     
-    scrollPane.setMaxHeight(460);
+    // scrollPane.setMaxHeight(460);
 
     Timeline scrollTimeline = new Timeline();
     FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(1));
