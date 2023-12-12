@@ -1,10 +1,15 @@
 package petsafe;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -31,6 +36,8 @@ public class Home {
 
   @FXML
   public void initialize() {
+    Gson gson = new Gson();
+
     recipes = new ArrayList<>();
     SQLite sql = new SQLite();
     ResultSet results = sql.selectAll("SELECT * FROM recipes ORDER BY name");
@@ -42,8 +49,15 @@ public class Home {
         String description = results.getString("description");
         String image = results.getString("image");
         boolean petsafe = results.getInt("petsafe") == 1;
+        int rating = results.getInt("rating");
 
-        Recipe recipe = new Recipe(name, description, image, 5, petsafe);
+        List<String> ingredients, procedure;
+
+        Type listOfMyClassObject = new TypeToken<ArrayList<String>>() {}.getType();
+        ingredients = gson.fromJson(results.getString("ingredients"), listOfMyClassObject);
+        procedure = gson.fromJson(results.getString("procedure"), listOfMyClassObject);
+
+        Recipe recipe = new Recipe(name, description, image, rating, petsafe, ingredients, procedure);
         recipes.add(recipe);
       }
 

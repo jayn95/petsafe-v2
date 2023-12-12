@@ -3,6 +3,7 @@ package petsafe.components;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -38,7 +39,7 @@ public class Recipe extends VBox {
 
   private String recipeNameStr;
 
-  public Recipe(String name, String description, String imgPath, int rating, boolean petsafe) {
+  public Recipe(String name, String description, String imgPath, int rating, boolean petsafe, List<String> ingredients, List<String> procedure) {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe.fxml"));
     fxmlLoader.setRoot(this);
     fxmlLoader.setController(this);
@@ -90,8 +91,8 @@ public class Recipe extends VBox {
 
       try {
         RecipePage controller = App.setRootGetController("recipePage");
-        controller.printPassedParams(name);
-        
+        controller.setRecipeData(name, rating, imgFile, description, petsafe, ingredients, procedure);
+
       } catch (IOException e1) {
         // TODO Auto-generated catch block
         e1.printStackTrace();

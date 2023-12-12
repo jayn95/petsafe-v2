@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -37,21 +36,14 @@
                <children>
                   <VBox spacing="4.0">
                      <children>
-                        <Label fx:id="name" styleClass="subtitle" stylesheets="@assets/styles.css" text="Recipe Name" />
-                        <HBox>
-                           <children>
-                              <FontAwesomeIconView glyphName="STAR" />
-                              <FontAwesomeIconView glyphName="STAR" layoutX="10.0" layoutY="20.0" />
-                              <FontAwesomeIconView glyphName="STAR" layoutX="22.0" layoutY="20.0" />
-                              <FontAwesomeIconView glyphName="STAR" layoutX="34.0" layoutY="20.0" />
-                           </children>
-                        </HBox>
+                        <Label fx:id="name" styleClass="subtitle" stylesheets="@assets/styles.css" text="Recipe Name" wrapText="true" />
+                        <HBox fx:id="ratingHolder" />
                      </children>
                   </VBox>
-                  <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Description" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                  <Label fx:id="ingredients" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Ingredients" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <Label fx:id="procedure" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Procedure" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                  <AnchorPane minHeight="230.0" minWidth="410.0" style="-fx-background-color: lightgray;" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+                  <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Description" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                  <Label fx:id="ingredients" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Ingredients" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                  <Label fx:id="procedure" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Procedure" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <AnchorPane fx:id="imageContainer" minHeight="230.0" minWidth="410.0" style="-fx-background-color: lightgray;" GridPane.columnIndex="1" GridPane.rowSpan="3" />
                </children>
             </GridPane>
          </children>
