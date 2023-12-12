@@ -6,15 +6,20 @@ import java.util.List;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
+import javafx.util.Duration;
 
 public class RecipePage {
 
@@ -34,13 +39,10 @@ public class RecipePage {
   private HBox ratingHolder;
 
   @FXML
-  private AnchorPane imageContainer;
+  private ImageView imageContainer;
 
-  private boolean ispetsafe;
-  private String imageFilePath;
-  private int rating;
-
-  private List<String> ingredientsList, procedureList;
+  @FXML
+  private ScrollPane scrollPane;
 
   @FXML
   void backToHome(ActionEvent event) throws IOException {
@@ -51,15 +53,11 @@ public class RecipePage {
     this.name.setText(name);
   }
 
-  public void setRecipeData(String name, int rating, String imagePath, String description, boolean ispetsafe,
+  public void setRecipeData(String name, int rating, Image recipeImg, String description, boolean ispetsafe,
       List<String> ingredients, List<String> procedure) {
 
-    ingredientsList = new ArrayList<>(ingredients);
-    procedureList = new ArrayList<>(procedure);
-
-    this.ispetsafe = ispetsafe;
-    this.imageFilePath = imagePath;
-    this.rating = rating;
+    new ArrayList<>(ingredients);
+    new ArrayList<>(procedure);
 
     // Set all Data
     this.ingredients.setText(String.join("\n", ingredients)); // Ingredients
@@ -69,14 +67,50 @@ public class RecipePage {
     this.description.setText(description); // Description
 
     for (int i = 0; i < rating; i++) { // Rating
-      ratingHolder.getChildren().add(new FontAwesomeIconView(FontAwesomeIcon.STAR));
+      FontAwesomeIconView star_filled = new FontAwesomeIconView(FontAwesomeIcon.STAR, "16");
+      star_filled.setFill(Paint.valueOf("#d6cc99"));
+      ratingHolder.getChildren().add(star_filled);
+    }
+
+    for (int i = 0; i < (5 - rating); i++) {
+      FontAwesomeIconView star_hollow = new FontAwesomeIconView(FontAwesomeIcon.STAR_ALT, "16");
+      star_hollow.setFill(Paint.valueOf("#d6cc99"));
+      ratingHolder.getChildren().add(star_hollow);
     }
 
     // Image
-    imageContainer.setStyle(
-        "-fx-background-image: url('" + imagePath + "');"
-            + "-fx-background-size: cover;"
-            + "-fx-background-position: center center;"
-            + "-fx-background-color: gray;");
+    // imageContainer.setStyle(
+    // "-fx-background-image: url('" + imagePath + "');"
+    // + "-fx-background-size: cover;"
+    // + "-fx-background-position: center center;"
+    // + "-fx-background-color: gray;"
+    // );
+
+    imageContainer.setImage(recipeImg);
+
+    Timeline scrollTimeline = new Timeline();
+    FadeTransition fadeOutTransition = new FadeTransition(Duration.seconds(1));
+
+    Platform.runLater(() -> {
+      scrollPane.lookup(".scroll-bar:vertical").setOpacity(0);
+
+      scrollPane.vvalueProperty().addListener((observable, oldVal, newVal) -> {
+        scrollPane.lookup(".scroll-bar:vertical").setOpacity(1);
+
+        scrollTimeline.stop();
+        scrollTimeline.getKeyFrames().clear();
+        fadeOutTransition.stop();
+
+        scrollTimeline.getKeyFrames().add(
+            new KeyFrame(Duration.seconds(3), e -> {
+              fadeOutTransition.setNode(scrollPane.lookup(".scroll-bar:vertical"));
+              fadeOutTransition.setFromValue(1);
+              fadeOutTransition.setToValue(0);
+              fadeOutTransition.play();
+            }));
+
+        scrollTimeline.play();
+      });
+    });
   }
 }

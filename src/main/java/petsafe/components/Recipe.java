@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -58,11 +59,12 @@ public class Recipe extends VBox {
       throw new RuntimeException(e);
     }
 
+    
     String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
     URI uri = Paths.get(assetsPath, imgPath).toUri();
-
+    
     String imgFile = uri.toASCIIString();
-    // System.out.println(imgFile);
+    Image imgObject = new Image(uri.toString(), 400, 0, true, false);
 
     image.setStyle(
       "-fx-background-image: url('" + imgFile + "');" 
@@ -87,11 +89,11 @@ public class Recipe extends VBox {
 
     // Set Mouse Click Event
     this.setOnMouseClicked((e) -> {
-      System.out.println("Clicked Recipe " + name);
+      // System.out.println("Clicked Recipe " + name);
 
       try {
         RecipePage controller = App.setRootGetController("recipePage");
-        controller.setRecipeData(name, rating, imgFile, description, petsafe, ingredients, procedure);
+        controller.setRecipeData(name, rating, imgObject, description, petsafe, ingredients, procedure);
 
       } catch (IOException e1) {
         // TODO Auto-generated catch block

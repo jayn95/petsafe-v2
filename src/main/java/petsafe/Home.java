@@ -119,7 +119,6 @@ public class Home {
     int columns = (int) (availableWidth / (recipes.get(0).getPrefWidth()));
     double gap = Math.max((availableWidth % recipes.get(0).getPrefWidth()) / columns, 0.0);
     
-    System.out.println(gap);
     content.setHgap(gap);
     content.setVgap(gap);
   }

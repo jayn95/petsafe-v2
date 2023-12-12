@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,30 +23,47 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <GridPane hgap="10.0" vgap="10.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="40.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-              </rowConstraints>
-               <children>
-                  <VBox spacing="4.0">
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="100.0" layoutY="40.0" style="-fx-background-color: transparent;" stylesheets="@assets/styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <GridPane hgap="10.0" maxWidth="1.7976931348623157E308" vgap="20.0">
+                    <columnConstraints>
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="NEVER" />
+                      <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="TOP" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" valignment="TOP" vgrow="ALWAYS" />
+                    </rowConstraints>
                      <children>
-                        <Label fx:id="name" styleClass="subtitle" stylesheets="@assets/styles.css" text="Recipe Name" wrapText="true" />
-                        <HBox fx:id="ratingHolder" />
+                        <VBox spacing="4.0">
+                           <children>
+                              <Label fx:id="name" styleClass="large-title" stylesheets="@assets/styles.css" text="Recipe Name" wrapText="true" />
+                              <HBox fx:id="ratingHolder" spacing="2.0" />
+                           </children>
+                        </VBox>
+                        <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="body-text" stylesheets="@assets/styles.css" text="Recipe Description" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <VBox spacing="4.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label styleClass="subtitle" stylesheets="@assets/styles.css" text="Ingredients" wrapText="true" />
+                              <Label fx:id="ingredients" maxWidth="1.7976931348623157E308" styleClass="body-text" stylesheets="@assets/styles.css" text="Recipe Ingredients" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="4.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label styleClass="subtitle" stylesheets="@assets/styles.css" text="Procedure" wrapText="true" />
+                              <Label fx:id="procedure" maxWidth="1.7976931348623157E308" styleClass="body-text" stylesheets="@assets/styles.css" text="Recipe Procedure" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <ImageView fx:id="imageContainer" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
                      </children>
-                  </VBox>
-                  <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Description" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                  <Label fx:id="ingredients" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Ingredients" wrapText="true" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                  <Label fx:id="procedure" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="description" stylesheets="@assets/styles.css" text="Recipe Procedure" wrapText="true" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                  <AnchorPane fx:id="imageContainer" minHeight="230.0" minWidth="410.0" style="-fx-background-color: lightgray;" GridPane.columnIndex="1" GridPane.rowSpan="3" />
-               </children>
-            </GridPane>
+                  </GridPane>
+               </content>
+               <padding>
+                  <Insets bottom="40.0" left="100.0" right="100.0" top="40.0" />
+               </padding>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </center>
@@ -62,7 +80,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/logo-1.png" />
+                  <Image url="@assets/logo-3.png" />
                </image>
             </ImageView>
             <Label styleClass="main-title" stylesheets="@assets/styles.css" text="The Pet-Safe Recipe Book" GridPane.columnIndex="1">

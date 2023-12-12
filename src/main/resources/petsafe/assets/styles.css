@@ -31,6 +31,11 @@
   -fx-text-fill: #445d48;
 }
 
+.large-title {
+  -fx-font-family: "Berkshire Swash";
+  -fx-font-size: 36;
+}
+
 .subtitle, .button {
   -fx-font-family: "Josefin Sans Medium";
   -fx-font-size: 24;
@@ -45,6 +50,11 @@
 .description {
   -fx-font-family: "Josefin Sans Light";
   -fx-font-size: 16;
+}
+
+.body-text {
+  -fx-font-family: "Josefin Sans Light";
+  -fx-font-size: 20;
 }
 
 .separator .line {
