@@ -103,4 +103,14 @@ public class RecipePage {
       ratingHolder.getChildren().add(star_hollow);
     }
   }
+
+  @FXML
+  private void addRecipe() throws IOException {
+    App.setRoot("addRecipe");
+  }
+
+  @FXML
+  private void about() throws IOException {
+    App.setRoot("about");
+  }
 }

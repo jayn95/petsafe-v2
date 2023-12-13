@@ -101,11 +101,13 @@
                      </HBox.margin>
                   </Button>
                   <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="40.0" prefWidth="5.0" stylesheets="@assets/styles.css" />
-                  <Button layoutX="263.0" layoutY="27.0" mnemonicParsing="false" stylesheets="@assets/styles.css" text="About">
+                  <Button layoutX="263.0" layoutY="27.0" mnemonicParsing="false" onAction="#addRecipe" stylesheets="@assets/styles.css" text="Add Recipe">
                      <HBox.margin>
                         <Insets left="1.0" right="1.0" />
                      </HBox.margin>
                   </Button>
+                  <Separator layoutX="109.0" layoutY="50.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="40.0" prefWidth="5.0" stylesheets="@assets/styles.css" />
+                  <Button layoutX="111.0" layoutY="47.0" mnemonicParsing="false" onAction="#about" stylesheets="@assets/styles.css" text="About" />
                </children>
             </HBox>
          </children>

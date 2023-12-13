@@ -61,7 +61,7 @@ public class Recipe extends VBox {
 
     
     String assetsPath;
-    if (App.runningFromJAR()) {
+    if (App.runningFromJAR() || App.runningFromEXE()) {
       assetsPath = "classes/petsafe/assets/thumbnails";
 
     } else {
@@ -69,7 +69,7 @@ public class Recipe extends VBox {
     }
     URI uri = Paths.get(assetsPath, imgPath).toUri();
     
-    
+
     String imgFile = uri.toASCIIString();
     Image imgObject = new Image(uri.toString(), 400, 0, true, false);
 
@@ -96,7 +96,6 @@ public class Recipe extends VBox {
 
     // Set Mouse Click Event
     this.setOnMouseClicked((e) -> {
-      // System.out.println("Clicked Recipe " + name);
 
       try {
         RecipePage controller = App.setRootGetController("recipePage");

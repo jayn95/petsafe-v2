@@ -1,6 +1,7 @@
 petsafe\RecipePage.class
 petsafe\Home.class
 module-info.class
+petsafe\About.class
 petsafe\components\Recipe.class
 petsafe\App.class
 petsafe\Main.class

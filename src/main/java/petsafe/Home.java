@@ -132,4 +132,9 @@ public class Home {
   private void addRecipe() throws IOException {
     App.setRoot("addRecipe");
   }
+
+  @FXML
+  private void about() throws IOException {
+    App.setRoot("about");
+  }
 }

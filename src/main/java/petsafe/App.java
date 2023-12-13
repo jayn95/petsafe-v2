@@ -20,6 +20,9 @@ public class App extends Application {
   public void start(Stage stage) throws IOException {
     scene = new Scene(loadFXML("home"));
     stage.setScene(scene);
+
+    stage.setHeight(720);
+    stage.setWidth(1280);
     
     stage.setTitle("Pet-safe");
     stage.setMaximized(true);
@@ -38,6 +41,10 @@ public class App extends Application {
 
   public static boolean runningFromJAR() {
     return App.class.getProtectionDomain().getCodeSource().getLocation().getPath().endsWith(".jar");
+  }
+
+  public static boolean runningFromEXE() {
+    return App.class.getProtectionDomain().getCodeSource().getLocation().getPath().endsWith(".exe");
   }
 
   static void setRoot(String fxml) throws IOException {

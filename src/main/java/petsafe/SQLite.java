@@ -1,7 +1,6 @@
 package petsafe;
 
 import java.io.File;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +20,7 @@ public class SQLite {
       if (conn == null) {
         String url;
 
-        if (App.runningFromJAR()) {
+        if (App.runningFromJAR() || App.runningFromEXE()) {
           String jarPath = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
           String jarDir = new File(jarPath).getParent().replace("\\target", "");
           url = "jdbc:sqlite:" + jarDir + File.separator + "petsafe.db";
@@ -31,7 +30,7 @@ public class SQLite {
         }
 
         System.out.println("Running from JAR: " + App.runningFromJAR());
-        System.out.println(url);
+        System.out.println("Database URL: " + url);
         
         try {
           Class.forName("org.sqlite.JDBC");
@@ -54,7 +53,7 @@ public class SQLite {
         stmt = null;
         conn = null;
 
-        System.out.println("Connection closed");
+        System.out.println("Database Connection closed");
         connect();
       }
     } catch (SQLException e) {
