@@ -4,7 +4,6 @@
     <groupId>petsafe</groupId>
     <artifactId>petsafe</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
 
     <name>petsafe</name>
 

@@ -40,7 +40,7 @@ public class Recipe extends VBox {
 
   private String recipeNameStr;
 
-  public Recipe(String name, String description, String imgPath, int rating, boolean petsafe, List<String> ingredients, List<String> procedure) {
+  public Recipe(int id, String name, String description, String imgPath, int rating, boolean petsafe, List<String> ingredients, List<String> procedure) {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe.fxml"));
     fxmlLoader.setRoot(this);
     fxmlLoader.setController(this);
@@ -63,12 +63,12 @@ public class Recipe extends VBox {
     /*
      * Uncomment this on debug
      */
-    // String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+    String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
 
     /*
      * Uncomment this on export
      */
-    String assetsPath = "classes/petsafe/assets/thumbnails";
+    // String assetsPath = "classes/petsafe/assets/thumbnails";
 
     URI uri = Paths.get(assetsPath, imgPath).toUri();
     
@@ -102,7 +102,7 @@ public class Recipe extends VBox {
 
       try {
         RecipePage controller = App.setRootGetController("recipePage");
-        controller.setRecipeData(name, rating, imgObject, description, petsafe, ingredients, procedure);
+        controller.setRecipeData(id, name, rating, imgObject, description, petsafe, ingredients, procedure);
 
       } catch (IOException e1) {
         // TODO Auto-generated catch block

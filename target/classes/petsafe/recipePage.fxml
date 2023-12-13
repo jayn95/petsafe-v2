@@ -46,7 +46,6 @@
                         <Label fx:id="description" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="body-text" stylesheets="@assets/styles.css" text="Recipe Description" wrapText="true" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                         <VBox spacing="4.0" GridPane.rowIndex="3">
                            <children>
-                              <Label styleClass="subtitle" stylesheets="@assets/styles.css" text="Ingredients" wrapText="true" />
                               <Label fx:id="ingredients" maxWidth="1.7976931348623157E308" styleClass="body-text" stylesheets="@assets/styles.css" text="Recipe Ingredients" wrapText="true" />
                            </children>
                         </VBox>
@@ -102,12 +101,6 @@
                      </HBox.margin>
                   </Button>
                   <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="40.0" prefWidth="5.0" stylesheets="@assets/styles.css" />
-                  <Button layoutX="198.0" layoutY="27.0" mnemonicParsing="false" stylesheets="@assets/styles.css" text="Feedback">
-                     <HBox.margin>
-                        <Insets left="1.0" right="1.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Separator layoutX="322.0" layoutY="33.0" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="40.0" prefWidth="5.0" stylesheets="@assets/styles.css" />
                   <Button layoutX="263.0" layoutY="27.0" mnemonicParsing="false" stylesheets="@assets/styles.css" text="About">
                      <HBox.margin>
                         <Insets left="1.0" right="1.0" />
