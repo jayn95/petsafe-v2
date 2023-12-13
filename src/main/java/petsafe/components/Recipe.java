@@ -47,7 +47,7 @@ public class Recipe extends VBox {
 
     // Add effects
     DropShadow shadow = new DropShadow();
-    shadow.setColor(Color.rgb(68, 93, 72, 0.5));
+    shadow.setColor(Color.rgb(68, 93, 72, 0.4));
     shadow.setSpread(-1.0);
     shadow.setRadius(0);
   
@@ -63,12 +63,12 @@ public class Recipe extends VBox {
     /*
      * Uncomment this on debug
      */
-    String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+    // String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
 
     /*
      * Uncomment this on export
      */
-    // String assetsPath = "classes/petsafe/assets/thumbnails";
+    String assetsPath = "classes/petsafe/assets/thumbnails";
 
     URI uri = Paths.get(assetsPath, imgPath).toUri();
     

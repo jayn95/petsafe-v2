@@ -18,12 +18,12 @@ public class SQLite {
       /*
        * Uncomment on export
        */
-      // String url = "jdbc:sqlite:" + "classes/petsafe/petsafe.db";
+      String url = "jdbc:sqlite:" + "classes/petsafe/petsafe.db";
 
       /*
        * Uncomment this on debug
        */
-      String url = "jdbc:sqlite:" + App.class.getResource("petsafe.db").toExternalForm();
+      // String url = "jdbc:sqlite:" + App.class.getResource("petsafe.db").toExternalForm();
 
       conn = DriverManager.getConnection(url);
 
