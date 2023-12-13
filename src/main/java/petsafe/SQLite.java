@@ -1,5 +1,7 @@
 package petsafe;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,18 +19,29 @@ public class SQLite {
   private void connect() {
     try {
       if (conn == null) {
-        /*
-         * Uncomment on export
-         */
-        // String url = "jdbc:sqlite:" + "classes/petsafe/petsafe.db";
+        String url;
 
-        /*
-         * Uncomment this on debug
-         */
-        String url = "jdbc:sqlite:" + App.class.getResource("petsafe.db").toExternalForm();
+        if (App.runningFromJAR()) {
+          String jarPath = getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+          String jarDir = new File(jarPath).getParent().replace("\\target", "");
+          url = "jdbc:sqlite:" + jarDir + File.separator + "petsafe.db";
 
-        conn = DriverManager.getConnection(url);
-        conn.setAutoCommit(true);
+        } else {
+          url = "jdbc:sqlite:petsafe.db";
+        }
+
+        System.out.println("Running from JAR: " + App.runningFromJAR());
+        System.out.println(url);
+        
+        try {
+          Class.forName("org.sqlite.JDBC");
+          conn = DriverManager.getConnection(url);
+          conn.setAutoCommit(true);
+
+        } catch (ClassNotFoundException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
 
         System.out.println("Connection to sqlite has been established");
 

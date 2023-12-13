@@ -36,6 +36,10 @@ public class App extends Application {
     return controller;
   }
 
+  public static boolean runningFromJAR() {
+    return App.class.getProtectionDomain().getCodeSource().getLocation().getPath().endsWith(".jar");
+  }
+
   static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadFXML(fxml));
   }

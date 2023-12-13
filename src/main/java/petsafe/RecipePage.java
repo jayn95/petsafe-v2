@@ -1,7 +1,6 @@
 package petsafe;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -14,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -56,8 +54,6 @@ public class RecipePage {
   public void setRecipeData(int id, String name, int rating, Image recipeImg, String description, boolean ispetsafe,
       List<String> ingredients, List<String> procedure) {
     
-    SQLite sql = new SQLite();
-
     // Set all Data
     this.ingredients.setText(String.join("\n", ingredients)); // Ingredients
     this.procedure.setText(String.join("\n", procedure)); // Procedure
