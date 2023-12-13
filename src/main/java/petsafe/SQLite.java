@@ -14,7 +14,17 @@ public class SQLite {
     Connection conn = null;
 
     try {
-      String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "/src/main/petsafe.db";
+      
+      /*
+       * Uncomment on export
+       */
+      // String url = "jdbc:sqlite:" + "classes/petsafe/petsafe.db";
+
+      /*
+       * Uncomment this on debug
+       */
+      String url = "jdbc:sqlite:" + App.class.getResource("petsafe.db").toExternalForm();
+
       conn = DriverManager.getConnection(url);
 
       // System.out.println("Connection to sqlite has been established");

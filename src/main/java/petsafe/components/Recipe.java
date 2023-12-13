@@ -60,7 +60,16 @@ public class Recipe extends VBox {
     }
 
     
+    /*
+     * Uncomment this on debug
+     */
     String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+
+    /*
+     * Uncomment this on export
+     */
+    // String assetsPath = "classes/petsafe/assets/thumbnails";
+
     URI uri = Paths.get(assetsPath, imgPath).toUri();
     
     String imgFile = uri.toASCIIString();
