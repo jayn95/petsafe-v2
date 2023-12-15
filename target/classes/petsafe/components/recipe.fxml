@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefWidth="240.0" styleClass="recipe" stylesheets="@../assets/styles.css" type="VBox" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="image" maxWidth="260.0" minWidth="-Infinity" prefHeight="200.0" stylesheets="@../assets/styles.css" />
+      <Label fx:id="recipeName" maxWidth="260.0" styleClass="subtitle" stylesheets="@../assets/styles.css" text="Label" wrapText="true">
+         <font>
+            <Font name="Josefin Sans Regular" size="26.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="-2.0" />
+         </VBox.margin>
+      </Label>
+      <HBox />
+      <Label fx:id="isPetSafe" maxWidth="260.0" styleClass="small-text" stylesheets="@../assets/styles.css" text="Petsafe: Yes" />
+      <Label fx:id="recipeDescription" alignment="TOP_LEFT" maxHeight="64.0" maxWidth="260.0" styleClass="description" stylesheets="@../assets/styles.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a idfjdifjdij isfj sidfjweijfwefj eiwfj weijf wei" wrapText="true">
+         <font>
+            <Font name="Josefin Sans Light" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="8.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+</fx:root>

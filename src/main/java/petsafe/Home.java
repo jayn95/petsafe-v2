@@ -50,6 +50,7 @@ public class Home {
         String image = results.getString("image");
         boolean petsafe = results.getInt("petsafe") == 1;
         int rating = results.getInt("rating");
+        int id = results.getInt("id");
 
         List<String> ingredients, procedure;
 
@@ -57,9 +58,11 @@ public class Home {
         ingredients = gson.fromJson(results.getString("ingredients"), listOfMyClassObject);
         procedure = gson.fromJson(results.getString("procedure"), listOfMyClassObject);
 
-        Recipe recipe = new Recipe(name, description, image, rating, petsafe, ingredients, procedure);
+        Recipe recipe = new Recipe(id, name, description, image, rating, petsafe, ingredients, procedure);
         recipes.add(recipe);
       }
+
+      results.close();
 
     } catch (SQLException e) {
       System.out.println(e.getMessage());
@@ -114,6 +117,8 @@ public class Home {
   }
 
   private void adjustWidth() {
+    if (recipes.size() == 0) return;
+    
     double availableWidth = content.getWidth();
     
     int columns = (int) (availableWidth / (recipes.get(0).getPrefWidth()));
@@ -126,5 +131,10 @@ public class Home {
   @FXML
   private void addRecipe() throws IOException {
     App.setRoot("addRecipe");
+  }
+
+  @FXML
+  private void about() throws IOException {
+    App.setRoot("about");
   }
 }

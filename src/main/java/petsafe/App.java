@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,10 +20,14 @@ public class App extends Application {
   public void start(Stage stage) throws IOException {
     scene = new Scene(loadFXML("home"));
     stage.setScene(scene);
+
+    stage.setHeight(720);
+    stage.setWidth(1280);
     
     stage.setTitle("Pet-safe");
     stage.setMaximized(true);
-   
+
+    stage.getIcons().add(new Image(App.class.getResourceAsStream("assets/logo-3.png")));
     stage.show();
   }
 
@@ -32,6 +37,14 @@ public class App extends Application {
 
     T controller = fxmlLoader.getController();
     return controller;
+  }
+
+  public static boolean runningFromJAR() {
+    return App.class.getProtectionDomain().getCodeSource().getLocation().getPath().endsWith(".jar");
+  }
+
+  public static boolean runningFromEXE() {
+    return App.class.getProtectionDomain().getCodeSource().getLocation().getPath().endsWith(".exe");
   }
 
   static void setRoot(String fxml) throws IOException {

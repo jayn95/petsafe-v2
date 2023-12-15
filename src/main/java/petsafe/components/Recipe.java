@@ -40,14 +40,14 @@ public class Recipe extends VBox {
 
   private String recipeNameStr;
 
-  public Recipe(String name, String description, String imgPath, int rating, boolean petsafe, List<String> ingredients, List<String> procedure) {
+  public Recipe(int id, String name, String description, String imgPath, int rating, boolean petsafe, List<String> ingredients, List<String> procedure) {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe.fxml"));
     fxmlLoader.setRoot(this);
     fxmlLoader.setController(this);
 
     // Add effects
     DropShadow shadow = new DropShadow();
-    shadow.setColor(Color.rgb(68, 93, 72, 0.5));
+    shadow.setColor(Color.rgb(68, 93, 72, 0.4));
     shadow.setSpread(-1.0);
     shadow.setRadius(0);
   
@@ -60,9 +60,16 @@ public class Recipe extends VBox {
     }
 
     
-    String assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+    String assetsPath;
+    if (App.runningFromJAR() || App.runningFromEXE()) {
+      assetsPath = "classes/petsafe/assets/thumbnails";
+
+    } else {
+      assetsPath = "src/main/resources/petsafe/assets/thumbnails/";
+    }
     URI uri = Paths.get(assetsPath, imgPath).toUri();
     
+
     String imgFile = uri.toASCIIString();
     Image imgObject = new Image(uri.toString(), 400, 0, true, false);
 
@@ -89,11 +96,10 @@ public class Recipe extends VBox {
 
     // Set Mouse Click Event
     this.setOnMouseClicked((e) -> {
-      // System.out.println("Clicked Recipe " + name);
 
       try {
         RecipePage controller = App.setRootGetController("recipePage");
-        controller.setRecipeData(name, rating, imgObject, description, petsafe, ingredients, procedure);
+        controller.setRecipeData(id, name, rating, imgObject, description, petsafe, ingredients, procedure);
 
       } catch (IOException e1) {
         // TODO Auto-generated catch block
